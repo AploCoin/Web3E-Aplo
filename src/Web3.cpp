@@ -181,6 +181,13 @@ string Web3::EthSendSignedTransaction(const string* data, const uint32_t dataLen
     return exec(&input);
 }
 
+string Web3::EthGetTransactionReceipt(const string* txHash) {
+    string m = "eth_getTransactionReceipt";
+    string p = "[\"" + *txHash + "\"]";
+    string input = generateJson(&m, &p);
+    return exec(&input);
+}
+
 // -------------------------------
 // Private
 

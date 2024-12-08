@@ -67,6 +67,7 @@ public:
 
     string EthCall(const string* from, const char* to, long gas, long gasPrice, const string* value, const string* data);
     string EthSendSignedTransaction(const string* data, const uint32_t dataLen);
+	string EthGetTransactionReceipt(const string* txHash);
 
     long long int getLongLong(const string* json);
     string getString(const string* json);

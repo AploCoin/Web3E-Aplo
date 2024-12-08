@@ -39,6 +39,7 @@
 #define KLAYTN_RPC "public-node-api.klaytnapi.com/v1/cypress"
 #define KLAYTN_BAOBAB_RPC "api.baobab.klaytn.net:8651"
 #define FUJI_TEST_RPC "api.avax-test.network/ext/bc/C/rpc"
+#define APLOCOIN_RPC "pub1.aplocoin.com"
 
 const char* getNode(long long chainId)
 {
@@ -92,6 +93,8 @@ const char* getNode(long long chainId)
         return ARBITRUM_INF_GOERLI_URL;
 	case FUJI_TEST_ID:
         return FUJI_TEST_RPC;
+    case APLOCOIN_RPC:
+        return APLOCOIN_ID;
 		
     default:
         return "";
