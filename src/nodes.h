@@ -93,8 +93,8 @@ const char* getNode(long long chainId)
         return ARBITRUM_INF_GOERLI_URL;
 	case FUJI_TEST_ID:
         return FUJI_TEST_RPC;
-    case APLOCOIN_RPC:
-        return APLOCOIN_ID;
+    case APLOCOIN_ID:
+        return APLOCOIN_RPC;
 		
     default:
         return "";

@@ -321,7 +321,7 @@ void Util::ConvertHexToBytes(uint8_t *_dst, const char *_src, int length)
     {
         char a = _src[2 * i];
         char b = _src[2 * i + 1];
-        byte extract = HexToInt(a) << 4 | HexToInt(b);
+        uint8_t extract = HexToInt(a) << 4 | HexToInt(b);
         _dst[i] = extract;
     }
 }
@@ -329,9 +329,9 @@ void Util::ConvertHexToBytes(uint8_t *_dst, const char *_src, int length)
 string Util::ConvertBase(int from, int to, const char *s)
 {
 	if (s == NULL)
-		return NULL;
+		return "";
 
-	if (from < 2 || from > 36 || to < 2 || to > 36) { return NULL; }
+	if (from < 2 || from > 36 || to < 2 || to > 36) { return ""; }
 
 	if (s[0] == '0' && s[1] == 'x') s += 2;
 
@@ -359,7 +359,7 @@ string Util::ConvertBase(int from, int to, const char *s)
 			}
 			else
 			{
-				return NULL;
+				return "";
 			} //only allow 0-9 A-Z characters
 		}
 		k++;
@@ -368,7 +368,7 @@ string Util::ConvertBase(int from, int to, const char *s)
 	for (i = 0; i<il; i++)
 	{
 		if (fs[i] >= from)
-			return NULL;
+			return "";
 	}
 
 	double x = ceil(log(from) / log(to));
@@ -402,7 +402,7 @@ string Util::ConvertBase(int from, int to, const char *s)
 				{
 					if (rem > 0)
 					{
-						return NULL;
+						return "";
 					}
 					break;
 				}
@@ -430,7 +430,7 @@ string Util::ConvertBase(int from, int to, const char *s)
 				{
 					if (rem > 0)
 					{
-						return NULL;
+						return "";
 					}
 					break;
 				}

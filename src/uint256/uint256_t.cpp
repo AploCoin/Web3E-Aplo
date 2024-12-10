@@ -543,7 +543,7 @@ uint16_t uint256_t::bits() const{
 std::string uint256_t::str(uint8_t base, const unsigned int & len) const{
     if ((base < 2) || (base > 36)){
         Serial.println("Base must be in the range [2, 16]");
-        return 0;
+        return "";
     }
     std::string out = "";
     if (!(*this)){

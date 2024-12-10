@@ -163,10 +163,8 @@ string Contract::ViewCall(const string *param)
 string Contract::Call(const string *param)
 {
     const string from = string(options.from);
-    const long gasPrice = strtol(options.gasPrice, nullptr, 10);
-    const string value = "";
 
-    string result = web3->EthCall(&from, contractAddress, options.gas, gasPrice, &value, param);
+    string result = web3->EthCall(&from, contractAddress, param);
     return result;
 }
 

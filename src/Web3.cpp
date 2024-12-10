@@ -161,9 +161,7 @@ int Web3::EthGetTransactionCount(const string* address) {
     return getInt(&output);
 }
 
-string Web3::EthCall(const string* from, const char* to, long gas, long gasPrice,
-                     const string* value, const string* data) {
-    // TODO use gas, gasprice and value
+string Web3::EthCall(const string* from, const char* to, const string* data) {
     string m = "eth_call";
     string p = "[{\"from\":\"" + *from + "\",\"to\":\""
                + *to + "\",\"data\":\"" + *data + "\"}, \"latest\"]";
@@ -313,7 +311,7 @@ string Web3::getString(const string *json)
     vector<string> *v = Util::ConvertStringHexToABIArray(&parseVal);
     
     uint256_t length = uint256_t(v->at(1));
-    uint32_t lengthIndex = length;
+    uint32_t lengthIndex = static_cast<uint32_t>(length);
 
     string asciiHex;
     int index = 2;
@@ -325,7 +323,7 @@ string Web3::getString(const string *json)
     }
 
     //convert ascii into string
-    string text = Util::ConvertHexToASCII(asciiHex.substr(0, length*2).c_str(), length*2);
+    string text = Util::ConvertHexToASCII(asciiHex.substr(0, static_cast<unsigned int>(static_cast<uint32_t>(length * 2))).c_str(), static_cast<unsigned int>(static_cast<uint32_t>(length * 2)));
     delete v;
 
     return text;

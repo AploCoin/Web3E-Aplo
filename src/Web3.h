@@ -65,7 +65,7 @@ public:
     int EthGetTransactionCount(const string* address);
     string EthViewCall(const string* data, const char* to);
 
-    string EthCall(const string* from, const char* to, long gas, long gasPrice, const string* value, const string* data);
+    string EthCall(const string* from, const char* to, const string* data);
     string EthSendSignedTransaction(const string* data, const uint32_t dataLen);
 	string EthGetTransactionReceipt(const string* txHash);
 
